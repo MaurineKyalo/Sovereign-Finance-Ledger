@@ -43,11 +43,12 @@ while True:
     if user_choice == '1':
         sale_amount = record_sale()
         total_sales += sale_amount
+
     elif user_choice == '2':
         print("Expense recording logic will go here.")
         
     elif user_choice == '3':
-        print("Balance calculation will go here.")
+        print(total_sales)
         
     elif user_choice == '4':
         print("Exiting system. Goodbye!")
