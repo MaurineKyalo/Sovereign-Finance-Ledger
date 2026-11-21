@@ -34,7 +34,26 @@ def record_sale():
             
         except ValueError:
             print("Error: That's not a number. Try again.")
+
+def record_expense():
+  while True:
+    user_input=input("Enter expense amount (or 0 to go back): Ksh")
+    if user_input == "0":
+      print ("Returning to main menu...")
+      return 0.0   
+    try:
+      amount=float(user_input)
+      if amount <= 0:
+        print ("Error amount cannot be negative")
+        continue
+      print (f"Successfully recorded expense amount of {amount} Ksh")
+      return amount
+    except ValueError:
+      print ("Error that is not a number try again")
+
 total_sales = 0.0
+total_expenses = 0.0
+
 print("Welcome to the Sovereign Finance Ledger")
 
 while True:
@@ -45,7 +64,8 @@ while True:
         total_sales += sale_amount
 
     elif user_choice == '2':
-        print("Expense recording logic will go here.")
+        expense_amount = record_expense()
+        total_expenses += expense_amount
         
     elif user_choice == '3':
         print(total_sales)
